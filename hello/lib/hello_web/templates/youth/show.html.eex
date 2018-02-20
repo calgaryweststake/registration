@@ -1,0 +1,4 @@
+<div class="jumbotron">
+  <h2>Showing Youth</h2>
+  <%= render("youth.html", youth: @youth) %>
+</div>
