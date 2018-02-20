@@ -17,4 +17,16 @@ defmodule HelloWeb.YouthController do
     changeset = Youth.changeset(%Youth{})
     render conn, "new.html", changeset: changeset
   end
+  
+  def create(conn, %{"youth" => youth_params}) do
+    changeset = Youth.changeset(%Youth{}, youth_params)
+    case Repo.insert(changeset) do
+      {:ok, youth} ->    
+        conn
+        |> put_flash(:info, "#{youth.name} created!")
+        |> redirect(to: youth_path(conn, :index))
+      {:error, changeset} ->
+        render(conn, "new.html", changeset: changeset)
+    end
+  end
 end

@@ -17,11 +17,9 @@ defmodule HelloWeb.Router do
     pipe_through :browser # Use the default browser stack
 
     get "/", PageController, :index
-    get "/hello", HelloController, :index
-    get "/hello/:messenger", HelloController, :show
         
     resources "/youth", YouthController, only: [:index, :show, :new, :create]
-    resources "/leader", LeaderController, only: [:new, :create]
+    # resources "/leader", LeaderController, only: [:new, :create]
         
   end
     
@@ -30,7 +28,7 @@ defmodule HelloWeb.Router do
     pipe_through :api
     
     #resources "/youth", YouthController, only: [:new, :create]
-    resources "/leader", LeaderController, only: [:new, :create]
+    # resources "/leader", LeaderController, only: [:new, :create]
     
   end
 end

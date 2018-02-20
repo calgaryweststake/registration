@@ -17,5 +17,6 @@ defmodule Hello.Youth do
     youth
     |> cast(attrs, [:name, :email, :bio])
     |> validate_required([:name, :email, :bio])
+    |> validate_length(:name, min: 5, max: 20) # for example
   end
 end
