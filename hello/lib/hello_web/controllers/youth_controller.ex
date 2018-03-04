@@ -23,7 +23,7 @@ defmodule HelloWeb.YouthController do
     case Repo.insert(changeset) do
       {:ok, youth} ->    
         conn
-        |> put_flash(:info, "#{youth.name} created!")
+        |> put_flash(:info, "#{youth.first_name} #{youth.last_name} created!")
         |> redirect(to: youth_path(conn, :index))
       {:error, changeset} ->
         render(conn, "new.html", changeset: changeset)

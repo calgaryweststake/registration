@@ -9,18 +9,120 @@
     </div>
   <% end %>
   
+  <h3>Youth</h3>
+
     <div class="form-group">
-      <%= text_input f, :name, placeholder: "Name", class: "form-control" %>
-      <%= error_tag f, :name %>
+      <%= text_input f, :first_name, placeholder: "First name", class: "form-control" %>
+      <%= error_tag f, :first_name %>
     </div>
     <div class="form-group">
-      <%= text_input f, :email, placeholder: "Email", class: "form-control" %>
-      <%= error_tag f, :email %>
+      <%= text_input f, :last_name, placeholder: "Last name", class: "form-control" %>
+      <%= error_tag f, :last_name %>
     </div>
     <div class="form-group">
-      <%= text_input f, :bio, placeholder: "Bio", class: "form-control" %>
-      <%= error_tag f, :bio %>
+      <%= text_input f, :mobile_number, placeholder: "Mobile number", class: "form-control" %>
+      <%= error_tag f, :mobile_number %>
     </div>
+    <div class="form-group">
+      <%= label f, :birth_date, "Birth date", class: "control-label" %>
+      <%# <%= date_select f, :birth_date %>
+      <%= error_tag f, :birth_date %>
+    </div>
+    <div class="form-group">
+      <%= label f, :gender, "Gender", class: "control-label" %>
+      <%= select f, :gender, ["": "", "Female": "female", "Male": "male"], class: "form-control" %>
+      <%= error_tag f, :gender %>
+    </div>
+    <div class="form-group">
+      <%= label f, :ward, "Ward", class: "control-label" %>
+      <%= select f, :ward, ["": "", "Banff": "banff", "Bow Valley": "bow_valley", "Cochrane 1st": "cochrane_1st", "Cochrane 2nd": "cochrane_2nd", "17th": "17th", "Rocky Ridge": "rocky_ridge", "Rockyview": "rockyview", "Royal Oak": "royal_oak", "Tuscany": "tuscany", "Varsity": "varsity", "Other": "other"], class: "form-control" %>
+      <%= error_tag f, :ward %>
+    </div>
+
+  <h3>Emergency Contact</h3>
+
+    <div class="form-group">
+      <%= text_input f, :emergency_first_name, placeholder: "First name", class: "form-control" %>
+      <%= error_tag f, :emergency_first_name %>
+    </div>
+    <div class="form-group">
+      <%= text_input f, :emergency_last_name, placeholder: "Last name", class: "form-control" %>
+      <%= error_tag f, :emergency_last_name %>
+    </div>
+    <div class="form-group">
+      <%= text_input f, :emergency_primary_number, placeholder: "Primary number", class: "form-control" %>
+      <%= error_tag f, :emergency_primary_number %>
+    </div>
+    <div class="form-group">
+      <%= text_input f, :emergency_alternate_number, placeholder: "Alternate number", class: "form-control" %>
+      <%= error_tag f, :emergency_alternate_number %>
+    </div>
+    <div class="form-group">
+      <%= text_input f, :emergency_relationship, placeholder: "Relationship to youth", class: "form-control" %>
+      <%= error_tag f, :emergency_relationship %>
+    </div>
+
+  <h3>Medical Information</h3>
+
+    <div class="form-group">
+      <%= textarea f, :medical_allergies, placeholder: "Allergies", class: "form-control" %>
+      <%= error_tag f, :medical_allergies %>
+    </div>
+    <div class="form-group">
+      <%= textarea f, :medical_limitations, placeholder: "Limitations", class: "form-control" %>
+      <%= error_tag f, :medical_limitations %>
+    </div>
+    <div class="form-group">
+      <%= textarea f, :medical_medications, placeholder: "Medications", class: "form-control" %>
+      <%= error_tag f, :medical_medications %>
+    </div>
+    <div class="form-group">
+      <%= textarea f, :medical_history, placeholder: "Relevant medical history", class: "form-control" %>
+      <%= error_tag f, :medical_history %>
+    </div>
+
+  <h3>Permission</h3>
+
+    <div class="form-group">
+      <%= text_input f, :permission_first_name, placeholder: "First name", class: "form-control" %>
+      <%= error_tag f, :permission_first_name %>
+    </div>
+    <div class="form-group">
+      <%= text_input f, :permission_last_name, placeholder: "Last name", class: "form-control" %>
+      <%= error_tag f, :permission_last_name %>
+    </div>
+    <div class="form-group">
+      <%= text_input f, :permission_email, placeholder: "Email", class: "form-control" %>
+      <%= error_tag f, :permission_email %>
+    </div>
+    <div class="form-group">
+      <%= text_input f, :permission_number, placeholder: "Phone number", class: "form-control" %>
+      <%= error_tag f, :permission_number %>
+    </div>
+    <div class="form-group">
+      <%= text_input f, :permission_address, placeholder: "Street address", class: "form-control" %>
+      <%= error_tag f, :permission_address %>
+    </div>
+    <div class="form-group">
+      <%= text_input f, :permission_city, placeholder: "City", class: "form-control" %>
+      <%= error_tag f, :permission_city %>
+    </div>
+    <div class="form-group">
+      <%= text_input f, :permission_province, placeholder: "Province", class: "form-control" %>
+      <%= error_tag f, :permission_province %>
+    </div>
+
+    <div class="form-group">
+      <%= label f, :permission_participation_agreement, "Participation agreement", class: "control-label" %>
+      <%= checkbox f, :permission_participation_agreement, placeholder: "Province", class: "form-control" %>
+      <%= error_tag f, :permission_participation_agreement %>
+    </div>
+    <div class="form-group">
+      <%= label f, :permission_photographic_agreement, "Photographic agreement", class: "control-label" %>
+      <%= checkbox f, :permission_photographic_agreement, placeholder: "Province", class: "form-control" %>
+      <%= error_tag f, :permission_photographic_agreement %>
+    </div>
+
     <%= submit "Create User", class: "btn btn-primary" %>
   <% end %>
 </div>  

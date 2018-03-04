@@ -12,25 +12,26 @@ defmodule HelloWeb.Router do
   pipeline :api do
     plug :accepts, ["json"]
   end
-
+  
   scope "/", HelloWeb do
     pipe_through :browser # Use the default browser stack
 
     get "/", PageController, :index
         
     resources "/youth", YouthController, only: [:index, :show, :new, :create]
-    # resources "/leader", LeaderController, only: [:new, :create]
+    resources "/leader", LeaderController, only: [:index, :show, :new, :create]
         
   end
     
   # Other scopes may use custom stacks.
-  scope "/api", HelloWeb do
-    pipe_through :api
-    
-    #resources "/youth", YouthController, only: [:new, :create]
-    # resources "/leader", LeaderController, only: [:new, :create]
-    
-  end
+  # scope "/api", HelloWeb do
+  #   pipe_through :api
+  #
+  #   # resources "/youth", YouthController, only: [:new, :create]
+  #   resources "/youth", YouthController, only: [:index]
+  #   # resources "/leader", LeaderController, only: [:new, :create]
+  #
+  # end
 end
 
 # activity_name: string (preselected)
