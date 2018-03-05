@@ -9,8 +9,8 @@ defmodule Hello.Repo.Migrations.CreateYouth do
       add :last_name, :string
       add :mobile_number, :string
       add :birth_date, :date
-      # gender
-      # ward
+      add :gender, :string
+      add :ward, :string
 
       ## Emergency Contact
       add :emergency_first_name, :string

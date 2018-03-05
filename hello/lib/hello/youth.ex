@@ -46,15 +46,12 @@ defmodule Hello.Youth do
   @doc false
   def changeset(%Youth{} = youth, attrs \\ %{}) do
 
-    # date = Ecto.Date.cast(attrs["birth_date"])
-    # attrs = Map.put(attrs, "birth_date", date)
-
     youth
-    |> cast(attrs, [:first_name, :last_name, :birth_date])
-    |> validate_required([:first_name, :last_name])
+    |> cast(attrs, [:first_name, :last_name, :birth_date, :gender, :ward])
+    |> validate_required([:first_name, :last_name, :birth_date, :gender, :ward])
     |> validate_length(:first_name, min: 2, max: 30)
     |> validate_length(:last_name, min: 2, max: 30)
-    |> validate_length(:gender, min: 1, max: 30)
-    |> validate_length(:ward, min: 1, max: 30)
+    |> validate_length(:gender, min: 3, max: 30)
+    |> validate_length(:ward, min: 3, max: 30)
   end
 end

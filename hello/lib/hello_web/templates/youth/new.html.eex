@@ -25,22 +25,22 @@
     </div>
     <div class="form-group">
       <%= label f, :birth_date, "Birth date", class: "control-label" %>
-      <%# <%= date_select f, :birth_date %>
+      <%= date_select f, :birth_date, placeholder: "Birth date", class: "form-control", year: [prompt: "", options: 1990..2018], month: [prompt: ""], day: [prompt: ""] %>
       <%= error_tag f, :birth_date %>
     </div>
     <div class="form-group">
-      <%= label f, :gender, "Gender", class: "control-label" %>
-      <%= select f, :gender, ["": "", "Female": "female", "Male": "male"], class: "form-control" %>
+      <%# <%= label f, :gender, "Gender", class: "control-label" %>
+      <%= select f, :gender, ["Female": "female", "Male": "male"], prompt: "Gender", class: "form-control" %>
       <%= error_tag f, :gender %>
     </div>
     <div class="form-group">
-      <%= label f, :ward, "Ward", class: "control-label" %>
-      <%= select f, :ward, ["": "", "Banff": "banff", "Bow Valley": "bow_valley", "Cochrane 1st": "cochrane_1st", "Cochrane 2nd": "cochrane_2nd", "17th": "17th", "Rocky Ridge": "rocky_ridge", "Rockyview": "rockyview", "Royal Oak": "royal_oak", "Tuscany": "tuscany", "Varsity": "varsity", "Other": "other"], class: "form-control" %>
+      <%# <%= label f, :ward, "Ward", class: "control-label" %>
+      <%= select f, :ward, ["Banff": "banff", "Bow Valley": "bow_valley", "Cochrane 1st": "cochrane_1st", "Cochrane 2nd": "cochrane_2nd", "17th": "17th", "Rocky Ridge": "rocky_ridge", "Rockyview": "rockyview", "Royal Oak": "royal_oak", "Tuscany": "tuscany", "Varsity": "varsity", "Other": "other"], prompt: "Ward", class: "form-control" %>
       <%= error_tag f, :ward %>
     </div>
 
-  <h3>Emergency Contact</h3>
 
+  <h3>Emergency Contact</h3>
     <div class="form-group">
       <%= text_input f, :emergency_first_name, placeholder: "First name", class: "form-control" %>
       <%= error_tag f, :emergency_first_name %>
@@ -123,6 +123,6 @@
       <%= error_tag f, :permission_photographic_agreement %>
     </div>
 
-    <%= submit "Create User", class: "btn btn-primary" %>
+    <%= submit "Register youth", class: "btn btn-primary" %>
   <% end %>
 </div>  
