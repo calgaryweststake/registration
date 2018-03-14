@@ -1,7 +1,7 @@
 <div class="jumbotron">
   <h2>New User</h2>
   
-  <%= form_for @changeset, youth_path(@conn, :create), fn f -> %>
+  <%= form_for @changeset, youth_path(@conn, :create), [multipart: true], fn f -> %>
   
   <%= if @changeset.action do %>
     <div class"alert alert-danger">
@@ -20,12 +20,12 @@
       <%= error_tag f, :last_name %>
     </div>
     <div class="form-group">
-      <%= text_input f, :mobile_number, placeholder: "Mobile number", class: "form-control" %>
+      <%= telephone_input f, :mobile_number, placeholder: "Mobile number", class: "form-control" %>
       <%= error_tag f, :mobile_number %>
     </div>
     <div class="form-group">
       <%= label f, :birth_date, "Birth date", class: "control-label" %>
-      <%= date_select f, :birth_date, placeholder: "Birth date", class: "form-control", year: [prompt: "", options: 1990..2018], month: [prompt: ""], day: [prompt: ""] %>
+      <%= date_select f, :birth_date, placeholder: "Birth date", class: "form-control", year: [prompt: "", options: 1999..2004], month: [prompt: ""], day: [prompt: ""] %>
       <%= error_tag f, :birth_date %>
     </div>
     <div class="form-group">
@@ -38,6 +38,12 @@
       <%= select f, :ward, ["Banff": "banff", "Bow Valley": "bow_valley", "Cochrane 1st": "cochrane_1st", "Cochrane 2nd": "cochrane_2nd", "17th": "17th", "Rocky Ridge": "rocky_ridge", "Rockyview": "rockyview", "Royal Oak": "royal_oak", "Tuscany": "tuscany", "Varsity": "varsity", "Other": "other"], prompt: "Ward", class: "form-control" %>
       <%= error_tag f, :ward %>
     </div>
+    <div class="form-group">
+      <%= label f, :photo, "Individual Photo", class: "control-label" %>
+      <%= file_input f, :photo, prompt: "Photo", class: "form-control" %>
+      <%= error_tag f, :photo %>
+    </div>
+
 
 
   <h3>Emergency Contact</h3>
@@ -50,11 +56,11 @@
       <%= error_tag f, :emergency_last_name %>
     </div>
     <div class="form-group">
-      <%= text_input f, :emergency_primary_number, placeholder: "Primary number", class: "form-control" %>
+      <%= telephone_input f, :emergency_primary_number, placeholder: "Primary number", class: "form-control" %>
       <%= error_tag f, :emergency_primary_number %>
     </div>
     <div class="form-group">
-      <%= text_input f, :emergency_alternate_number, placeholder: "Alternate number", class: "form-control" %>
+      <%= telephone_input f, :emergency_alternate_number, placeholder: "Alternate number", class: "form-control" %>
       <%= error_tag f, :emergency_alternate_number %>
     </div>
     <div class="form-group">
@@ -92,11 +98,11 @@
       <%= error_tag f, :permission_last_name %>
     </div>
     <div class="form-group">
-      <%= text_input f, :permission_email, placeholder: "Email", class: "form-control" %>
+      <%= email_input f, :permission_email, placeholder: "Email", class: "form-control" %>
       <%= error_tag f, :permission_email %>
     </div>
     <div class="form-group">
-      <%= text_input f, :permission_number, placeholder: "Phone number", class: "form-control" %>
+      <%= telephone_input f, :permission_number, placeholder: "Phone number", class: "form-control" %>
       <%= error_tag f, :permission_number %>
     </div>
     <div class="form-group">
@@ -114,9 +120,11 @@
 
     <div class="form-group">
       <%= label f, :permission_participation_agreement, "Participation agreement", class: "control-label" %>
+      <%= content_tag :p, "Lorem ipsum"%>
       <%= checkbox f, :permission_participation_agreement, placeholder: "Province", class: "form-control" %>
       <%= error_tag f, :permission_participation_agreement %>
     </div>
+      <%= content_tag :p, "Lorem ipsum dolor amet"%>
     <div class="form-group">
       <%= label f, :permission_photographic_agreement, "Photographic agreement", class: "control-label" %>
       <%= checkbox f, :permission_photographic_agreement, placeholder: "Province", class: "form-control" %>
