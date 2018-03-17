@@ -22,6 +22,16 @@ config :logger, :console,
   format: "$time $metadata[$level] $message\n",
   metadata: [:request_id]
 
+# Configures Guardian
+config :hello, Hello.Auth.Guardian,
+  issuer: "hello",
+  secret_key: "qCRjQ0pdClx23W1Or+olWmMGL1IbF2qpWIrVZOCCe6BgAOg/Y3YB5mpIw5fHq0Di"
+## ^ You can use `mix guardian.gen.secret` to create a secret_key
+
+config :hello, Hello.Auth.AuthAccessPipeline,
+  module: Hello.Auth.Guardian,
+  error_handler: Hello.Auth.AuthErrorHandler
+
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 import_config "#{Mix.env}.exs"
