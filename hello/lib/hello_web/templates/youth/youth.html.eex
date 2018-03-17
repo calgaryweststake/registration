@@ -1,1 +1,0 @@
-<b><%= name(@youth) %></b> (<%= @youth.id %>) <%= @youth.mobile_number %> <%= @youth.birth_date %> <%= @youth.gender %> <%= @youth.ward %> <%= @youth.emergency_first_name %> <%= @youth.emergency_last_name %> <%= @youth.emergency_primary_number %> <%= @youth.emergency_alternate_number %> <%= @youth.emergency_relationship %>

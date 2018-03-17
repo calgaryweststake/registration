@@ -1,4 +1,103 @@
-<div class="jumbotron">
-  <h2>Showing Youth</h2>
-  <%= render("youth.html", youth: @youth) %>
+<div class="">
+  <h2><%= name(@youth) %></h2>
+
+<table class="table">
+ <tr>
+   <td>Mobile</td>
+   <td><%= @youth.mobile_number %></td>
+ </tr>
+ <tr>
+   <td>Birthdate</td>
+   <td><%= @youth.birth_date %></td>
+ </tr>
+ <tr>
+   <td>Gender</td>
+   <td><%= @youth.gender %></td>
+ </tr>
+ <tr>
+   <td>Ward</td>
+   <td><%= @youth.ward %></td>
+ </tr>
+ <tr>
+  <td colspan="2"><h3>Emergency Contact</h3></td>
+ </tr>
+ <tr>
+   <td>Emergency First Name</td>
+   <td><%= @youth.emergency_first_name %></td>
+ </tr>
+ <tr>
+   <td>Emergency Last Name</td>
+   <td><%= @youth.emergency_last_name %></td>
+ </tr>
+ <tr>
+   <td>Emergency Primary Number</td>
+   <td><%= @youth.emergency_primary_number %></td>
+ </tr>
+ <tr>
+   <td>Emergency Alternate Number</td>
+   <td><%= @youth.emergency_alternate_number %></td>
+ </tr>
+ <tr>
+   <td>Emergency Relationship</td>
+   <td><%= @youth.emergency_relationship %></td>
+ </tr>
+ <tr>
+   <td colspan="2"><h3>Medical Information</h3></td>
+ </tr>
+ <tr>
+   <td>Medical Allergies</td>
+   <td><%= @youth.medical_allergies %></td>
+ </tr>
+ <tr>
+   <td>Medical Limitations</td>
+   <td><%= @youth.medical_limitations %></td>
+ </tr>
+ <tr>
+   <td>Medical Medications</td>
+   <td><%= @youth.medical_medications %></td>
+ </tr>
+ <tr>
+   <td>Medical History</td>
+   <td><%= @youth.medical_history %></td>
+ </tr>
+ <tr>
+   <td colspan="2"><h3>Permission</h3></td>
+ </tr>
+ <tr>
+   <td>First Name</td>
+   <td><%= @youth.permission_first_name %></td>
+ </tr>
+ <tr>
+   <td>Last Name</td>
+   <td><%= @youth.permission_last_name %></td>
+ </tr>
+ <tr>
+   <td>Email</td>
+   <td><%= @youth.permission_email %></td>
+ </tr>
+ <tr>
+   <td>Phone Number</td>
+   <td><%= @youth.permission_number %></td>
+ </tr>
+ <tr>
+   <td>Address</td>
+   <td><%= @youth.permission_address %></td>
+ </tr>
+ <tr>
+   <td>City</td>
+   <td><%= @youth.permission_city %></td>
+ </tr>
+ <tr>
+   <td>Province</td>
+   <td><%= @youth.permission_province %></td>
+ </tr>
+ <tr>
+   <td>Participation Agreement</td>
+   <td><%= @youth.permission_participation_agreement %></td>
+ </tr>
+ <tr>
+   <td>Photographic Agreement</td>
+   <td><%= @youth.permission_photographic_agreement %></td>
+ </tr>
+</table>
 </div>
