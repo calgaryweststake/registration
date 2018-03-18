@@ -60,9 +60,11 @@ defmodule Hello.Youth do
     |> validate_length(:emergency_relationship, min: 3, max: 30)
     |> validate_length(:permission_first_name, min: 2, max: 30)
     |> validate_length(:permission_last_name, min: 2, max: 30)
+    |> validate_format(:permission_email, ~r/@/)
     |> validate_length(:permission_number, min: 10, max: 30)
     |> validate_length(:permission_address, min: 2, max: 60)
     |> validate_length(:permission_city, min: 2, max: 30)
     |> validate_length(:permission_province, min: 2, max: 30)
+    |> validate_acceptance(:permission_participation_agreement, message: "In order for a youth to participate a Parent/Guardian must agree.")
   end
 end
