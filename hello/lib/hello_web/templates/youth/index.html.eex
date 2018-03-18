@@ -43,10 +43,10 @@
         <td><%= youth.emergency_alternate_number %></td>
         <td><%= youth.emergency_relationship %></td>
 
-        <td><%= youth.medical_allergies %></td>
-        <td><%= youth.medical_limitations %></td>
-        <td><%= youth.medical_medications %></td>
-        <td><%= youth.medical_history %></td>
+        <td><%= abbreviated_allergies(youth) %></td>
+        <td><%= abbreviated_limitations(youth) %></td>
+        <td><%= abbreviated_medications(youth) %></td>
+        <td><%= abbreviated_history(youth) %></td>
 
         <td><%= youth.permission_first_name %></td>
         <td><%= youth.permission_last_name %></td>
