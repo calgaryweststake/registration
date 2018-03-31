@@ -22,6 +22,18 @@ config :logger, :console,
   format: "$time $metadata[$level] $message\n",
   metadata: [:request_id]
 
+config :ex_admin,
+  repo: Hello.Repo,
+  module: HelloWeb, # or Hello?
+  modules: [
+    HelloWeb.ExAdmin.Dashboard,
+    HelloWeb.ExAdmin.Youth,
+    HelloWeb.ExAdmin.User
+  ]
+
+# ExAdmin transform returned HTML
+config :xain, :after_callback, {Phoenix.HTML, :raw}
+
 # Configures Guardian
 config :hello, Hello.Auth.Guardian,
   issuer: "hello",
