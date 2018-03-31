@@ -19,7 +19,7 @@ defmodule Hello.Accounts.User do
     user
     |> cast(attrs, [:name, :username, :password])
     |> validate_required([:name, :username, :password])
-    |> validate_length(:username, min: 3, max: 20)
+    |> validate_length(:username, min: 3, max: 30)
     |> validate_length(:password, min: 5, max: 50)
     |> unique_constraint(:username)
     |> put_password_hash()

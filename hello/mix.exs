@@ -5,7 +5,7 @@ defmodule Hello.Mixfile do
     [
       app: :hello,
       version: "0.0.1",
-      elixir: "~> 1.4",
+      elixir: "~> 1.5",
       elixirc_paths: elixirc_paths(Mix.env),
       compilers: [:phoenix, :gettext] ++ Mix.compilers,
       start_permanent: Mix.env == :prod,
@@ -39,11 +39,16 @@ defmodule Hello.Mixfile do
       {:postgrex, ">= 0.0.0"},
       {:phoenix_html, "~> 2.10"},
       {:phoenix_live_reload, "~> 1.0", only: :dev},
-      {:gettext, "~> 0.11"},
+      {:gettext, "~> 0.13.0"},
       {:cowboy, "~> 1.0"},
+
+      # Auth
       {:guardian, "~> 1.0"},
       {:comeonin, "~> 4.0"},
-      {:bcrypt_elixir, "~> 1.0"}
+      {:bcrypt_elixir, "~> 1.0"},
+
+      # Administration
+      {:ex_admin, github: "smpallen99/ex_admin"},
     ]
   end
 

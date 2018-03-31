@@ -1,5 +1,6 @@
 defmodule HelloWeb.Router do
   use HelloWeb, :router
+  use ExAdmin.Router
 
   pipeline :browser do
     plug :accepts, ["html"]
@@ -17,12 +18,18 @@ defmodule HelloWeb.Router do
     plug(Hello.Auth.AuthAccessPipeline)
   end
 
+  # setup the ExAdmin routes on /admin
+  scope "/admin", ExAdmin do
+    pipe_through [:browser, :auth]
+    admin_routes()
+  end
+
   scope "/", HelloWeb do
     pipe_through :browser # Use the default browser stack
 
     get "/", PageController, :index
 
-    resources("/users", UserController, only: [:new, :create])
+    # resources("/users", UserController, only: [:new, :create]) # disabled so accounts can only be created by authenticated users
     resources("/sessions", SessionController, only: [:new, :create])
 
     resources "/youth", YouthController, only: [:new, :create]
@@ -33,7 +40,7 @@ defmodule HelloWeb.Router do
   scope "/", HelloWeb do
     pipe_through [:browser, :auth] # Use the default browser stack
 
-    resources("/users", UserController, only: [:index, :show])
+    resources("/users", UserController, only: [:new, :create, :index, :show])
     resources("/sessions", SessionController, only: [:delete])
 
     resources "/youth", YouthController, only: [:index, :show]
