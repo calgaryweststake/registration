@@ -1,9 +1,9 @@
 defmodule Hello.Youth do
   use Ecto.Schema
+  use Arc.Ecto.Schema
 
   import Ecto.Changeset
   alias Hello.Youth
-
 
   schema "youth" do
     ## Youth Personal
@@ -13,7 +13,7 @@ defmodule Hello.Youth do
     field :birth_date, :date
     field :gender, :string
     field :ward, :string
-    # field :photo, ???
+    field :photo, Hello.Photo.Type
 
     ## Emergency Contact
     field :emergency_first_name, :string
@@ -48,7 +48,8 @@ defmodule Hello.Youth do
 
     youth
     |> cast(attrs, [:first_name, :last_name, :mobile_number, :birth_date, :gender, :ward, :emergency_first_name, :emergency_last_name, :emergency_primary_number, :emergency_alternate_number, :emergency_relationship, :medical_allergies, :medical_limitations, :medical_medications, :medical_history, :permission_first_name, :permission_last_name, :permission_email, :permission_number, :permission_address, :permission_city, :permission_province, :permission_participation_agreement, :permission_photographic_agreement])
-    |> validate_required([:first_name, :last_name, :birth_date, :gender, :ward, :emergency_first_name, :emergency_last_name, :emergency_primary_number, :emergency_relationship, :permission_first_name, :permission_last_name, :permission_number, :permission_address, :permission_city, :permission_province])
+    |> cast_attachments(attrs, [:photo])
+    |> validate_required([:first_name, :last_name, :birth_date, :gender, :ward, :photo, :emergency_first_name, :emergency_last_name, :emergency_primary_number, :emergency_relationship, :permission_first_name, :permission_last_name, :permission_number, :permission_address, :permission_city, :permission_province])
     |> validate_length(:first_name, min: 2, max: 30)
     |> validate_length(:last_name, min: 2, max: 30)
     |> validate_length(:mobile_number, min: 10, max: 30)

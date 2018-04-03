@@ -4,7 +4,7 @@ defmodule Hello.Mixfile do
   def project do
     [
       app: :hello,
-      version: "0.0.1",
+      version: "0.0.2",
       elixir: "~> 1.5",
       elixirc_paths: elixirc_paths(Mix.env),
       compilers: [:phoenix, :gettext] ++ Mix.compilers,
@@ -20,7 +20,7 @@ defmodule Hello.Mixfile do
   def application do
     [
       mod: {Hello.Application, []},
-      extra_applications: [:logger, :runtime_tools]
+      extra_applications: [:logger, :runtime_tools, :ex_aws, :hackney, :poison, :arc_ecto]
     ]
   end
 
@@ -49,6 +49,14 @@ defmodule Hello.Mixfile do
 
       # Administration
       {:ex_admin, github: "smpallen99/ex_admin"},
+
+      # File uploads
+      {:arc, "~> 0.8.0"},
+      {:arc_ecto, "~> 0.7.0"},
+      {:ex_aws, "~> 1.1"},
+      {:hackney, "~> 1.6"},
+      {:poison, "~> 3.1"},
+      {:sweet_xml, "~> 0.6"},
     ]
   end
 

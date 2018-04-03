@@ -17,3 +17,7 @@ config :hello, Hello.Repo,
   database: "hello_test",
   hostname: "localhost",
   pool: Ecto.Adapters.SQL.Sandbox
+
+# Configure Arc
+config :arc,
+  storage: Arc.Storage.Local
