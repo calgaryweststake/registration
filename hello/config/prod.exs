@@ -30,6 +30,12 @@ config :hello, Hello.Repo,
   pool_size: String.to_integer(System.get_env("POOL_SIZE") || "10"),
   ssl: true
 
+# Configure Arc
+config :arc,
+  storage: Arc.Storage.S3,
+  virtual_host: true,
+  bucket: "${AWS_S3_BUCKET}"
+
 # ## SSL Support
 #
 # To get SSL working, you will need to add the `https` key
