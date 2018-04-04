@@ -11,6 +11,7 @@ defmodule Hello.Youth do
     field :last_name, :string
     field :mobile_number, :string
     field :birth_date, :date
+    field :age, :integer
     field :gender, :string
     field :ward, :string
     field :photo, Hello.Photo.Type
@@ -50,6 +51,7 @@ defmodule Hello.Youth do
     |> cast(attrs, [:first_name, :last_name, :mobile_number, :birth_date, :gender, :ward, :emergency_first_name, :emergency_last_name, :emergency_primary_number, :emergency_alternate_number, :emergency_relationship, :medical_allergies, :medical_limitations, :medical_medications, :medical_history, :permission_first_name, :permission_last_name, :permission_email, :permission_number, :permission_address, :permission_city, :permission_province, :permission_participation_agreement, :permission_photographic_agreement])
     |> cast_attachments(attrs, [:photo])
     |> validate_required([:first_name, :last_name, :birth_date, :gender, :ward, :photo, :emergency_first_name, :emergency_last_name, :emergency_primary_number, :emergency_relationship, :permission_first_name, :permission_last_name, :permission_number, :permission_address, :permission_city, :permission_province])
+    |> calculate_age(:birth_date)
     |> validate_length(:first_name, min: 2, max: 30)
     |> validate_length(:last_name, min: 2, max: 30)
     |> validate_length(:mobile_number, min: 10, max: 30)
@@ -67,5 +69,22 @@ defmodule Hello.Youth do
     |> validate_length(:permission_city, min: 2, max: 30)
     |> validate_length(:permission_province, min: 2, max: 30)
     |> validate_acceptance(:permission_participation_agreement, message: "In order for a youth to participate a Parent/Guardian must agree.")
+  end
+
+  @doc false
+  defp calc_diff({y1, m1, d1}, {y2, m2, d2}) when m2 > m1 or (m2 == m1 and d2 >= d1) do
+    y2 - y1
+  end
+  defp calc_diff({y1,_,_}, {y2,_,_}), do: (y2 - y1) - 1
+
+  defp calculate_age(%Ecto.Changeset{} = changeset, field, options \\ []) do
+    with %Date{} = date_val <- get_field(changeset, field),
+         %Date{} = start_val <- ~D[2018-06-29] # start of event
+    do
+      changeset
+      |> put_change(:age, calc_diff(Date.to_erl(date_val), Date.to_erl(start_val)))
+    else
+      _-> changeset
+    end
   end
 end

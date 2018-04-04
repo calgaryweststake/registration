@@ -32,19 +32,19 @@ config :hello, Hello.Repo,
 
 # Configure Arc
 config :arc,
-  debug_requests: true,
+  #debug_requests: true,
   storage: Arc.Storage.S3,
   virtual_host: true,
   bucket: {:system, "AWS_S3_BUCKET"}
 
 config :ex_aws,
-  debug_requests: true,
+  #debug_requests: true,
   access_key_id: [{:system, "AWS_ACCESS_KEY_ID"}, :instance_role],
   secret_access_key: [{:system, "AWS_SECRET_ACCESS_KEY"}, :instance_role],
   region: "ca-central-1"
 
 config :ex_aws, :httpoison_opts,
-  debug_requests: true,
+  #debug_requests: true,
   recv_timeout: 60_000,
   hackney: [recv_timeout: 60_000, pool: false]
 
