@@ -19,3 +19,33 @@ import "phoenix_html"
 // paths "./socket" or full ones "web/static/js/socket".
 
 // import socket from "./socket"
+
+import $ from "jquery"
+import "jquery"
+import "bootstrap"
+
+// Make sure you included bootstrap js in your npm and brunch config files or this will not work
+global.jQuery = require("jquery")
+global.bootstrap = require("bootstrap")
+
+// Do the stuff to the existing html at page load time:
+$(document).ready(function () {
+    function onchangefirstname() {
+        var box1 = $('#youth_emergency_first_name');
+        var box2 = $('#youth_permission_first_name');
+        box2.val(box1.val());
+    }
+    function onchangelastname() {
+        var box1 = $('#youth_emergency_last_name');
+        var box2 = $('#youth_permission_last_name');
+        box2.val(box1.val());
+    }
+    function onchangephonenumber() {
+        var box1 = $('#youth_emergency_primary_number');
+        var box2 = $('#youth_permission_number');
+        box2.val(box1.val());
+    }
+    $('#youth_emergency_first_name').on('change', onchangefirstname);
+    $('#youth_emergency_last_name').on('change', onchangelastname);
+    $('#youth_emergency_primary_number').on('change', onchangephonenumber);
+});

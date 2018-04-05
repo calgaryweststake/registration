@@ -78,7 +78,7 @@ defmodule Hello.Youth do
   end
   defp calc_diff({y1,_,_}, {y2,_,_}), do: (y2 - y1) - 1
 
-  defp calculate_age(%Ecto.Changeset{} = changeset, field, options \\ []) do
+  defp calculate_age(%Ecto.Changeset{} = changeset, field) do
     with %Date{} = date_val <- get_field(changeset, field),
          %Date{} = start_val <- ~D[2018-06-29] # start of event
     do

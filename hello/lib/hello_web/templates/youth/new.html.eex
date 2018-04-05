@@ -1,14 +1,14 @@
-<div class="jumbotron">
-  <h2>Youth Registration</h2>
+<div>
+  <h2>Moroni's Quest 2018 Youth Registration</h2>
   
-  <%= form_for @changeset, youth_path(@conn, :create), [multipart: true], fn f -> %>
-  
-  <%= if @changeset.action do %>
-    <div class"alert alert-danger">
+    <%= if @changeset.action do %>
+    <div class="alert alert-danger" role="alert">
       <p>Oops, something went wrong! Please check the errors below.</p>
     </div>
   <% end %>
-  
+
+  <%= form_for @changeset, youth_path(@conn, :create), [multipart: true], fn f -> %>
+    
   <h3>Personal Information</h3>
 
     <div class="form-group">
