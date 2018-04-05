@@ -91,7 +91,7 @@
       <%= error_tag f, :medical_history %>
     </div>
 
-  <h3>Permission</h3>
+  <h3>Parent/Guardian Permission</h3>
 
     <div class="form-group">
       <%= text_input f, :permission_first_name, placeholder: "First name", class: "form-control" %>
