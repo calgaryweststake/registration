@@ -1,0 +1,104 @@
+<div>
+  <h2>Moroni's Quest 2018 Adult Registration</h2>
+  
+    <%= if @changeset.action do %>
+    <div class="alert alert-danger" role="alert">
+      <p>Oops, something went wrong! Please check the errors below.</p>
+    </div>
+  <% end %>
+
+  <%= form_for @changeset, adult_path(@conn, :create), [multipart: true], fn f -> %>
+    
+  <h3>Personal Information</h3>
+
+    <div class="form-group">
+      <%= text_input f, :first_name, placeholder: "First name", class: "form-control" %>
+      <%= error_tag f, :first_name %>
+    </div>
+    <div class="form-group">
+      <%= text_input f, :last_name, placeholder: "Last name", class: "form-control" %>
+      <%= error_tag f, :last_name %>
+    </div>
+    <div class="form-group">
+      <%= telephone_input f, :mobile_number, placeholder: "Mobile number", class: "form-control" %>
+      <%= error_tag f, :mobile_number %>
+    </div>
+    <div class="form-group">
+      <%= email_input f, :email, placeholder: "Email", class: "form-control" %>
+      <%= error_tag f, :email %>
+    </div>
+    <div class="form-group">
+      <%# <%= label f, :gender, "Gender", class: "control-label" %>
+      <%= select f, :gender, ["Female": "female", "Male": "male"], prompt: "Gender", class: "form-control" %>
+      <%= error_tag f, :gender %>
+    </div>
+    <div class="form-group">
+      <%# <%= label f, :ward, "Ward", class: "control-label" %>
+      <%= select f, :ward, ["Banff": "banff", "Bow Valley": "bow_valley", "Cochrane 1st": "cochrane_1st", "Cochrane 2nd": "cochrane_2nd", "17th": "17th", "Rocky Ridge": "rocky_ridge", "Rockyview": "rockyview", "Royal Oak": "royal_oak", "Tuscany": "tuscany", "Varsity": "varsity", "Other": "other"], prompt: "Ward", class: "form-control" %>
+      <%= error_tag f, :ward %>
+    </div>
+    <div class="form-group">
+      <%= label f, :photo, "Individual Photo", class: "control-label" %>
+      <%= file_input f, :photo, prompt: "Photo", class: "form-control" %>
+      <%= error_tag f, :photo %>
+    </div>
+
+  <h3>Emergency Contact</h3>
+    <div class="form-group">
+      <%= text_input f, :emergency_first_name, placeholder: "First name", class: "form-control" %>
+      <%= error_tag f, :emergency_first_name %>
+    </div>
+    <div class="form-group">
+      <%= text_input f, :emergency_last_name, placeholder: "Last name", class: "form-control" %>
+      <%= error_tag f, :emergency_last_name %>
+    </div>
+    <div class="form-group">
+      <%= telephone_input f, :emergency_primary_number, placeholder: "Primary number", class: "form-control" %>
+      <%= error_tag f, :emergency_primary_number %>
+    </div>
+    <div class="form-group">
+      <%= telephone_input f, :emergency_alternate_number, placeholder: "Alternate number", class: "form-control" %>
+      <%= error_tag f, :emergency_alternate_number %>
+    </div>
+    <div class="form-group">
+      <%= text_input f, :emergency_relationship, placeholder: "Relationship to contact", class: "form-control" %>
+      <%= error_tag f, :emergency_relationship %>
+    </div>
+
+  <h3>Medical Information</h3>
+
+    <div class="form-group">
+      <%= text_input f, :alberta_health_care, placeholder: "Alberta Health Care Number", class: "form-control" %>
+      <%= error_tag f, :alberta_health_care %>
+    </div>
+    <div class="form-group">
+      <%= textarea f, :medical_allergies, placeholder: "Allergies", class: "form-control" %>
+      <%= error_tag f, :medical_allergies %>
+    </div>
+    <div class="form-group">
+      <%= textarea f, :medical_limitations, placeholder: "Limitations", class: "form-control" %>
+      <%= error_tag f, :medical_limitations %>
+    </div>
+    <div class="form-group">
+      <%= textarea f, :medical_medications, placeholder: "Medications", class: "form-control" %>
+      <%= error_tag f, :medical_medications %>
+    </div>
+    <div class="form-group">
+      <%= textarea f, :medical_history, placeholder: "Relevant medical history", class: "form-control" %>
+      <%= error_tag f, :medical_history %>
+    </div>
+
+  <h3>Permission</h3>
+
+    <div class="form-group">
+      <%= content_tag :p, "I irreversibly grant to Intellectual Reserve, Inc., its related entities, and their respective employees, agents, and representatives (collectively called “IRI”), the full right to create and obtain, in the past, present, and in the future, images, photographs, video, audio, interviews, stories, personal histories, performances (vocal, instrumental, dramatic, or otherwise), mixes, and any other recordings, documents, or materials, in any now known or future media, of my name, image, voice, likeness, performance, and other items (collectively called “Recordings”). I also authorize IRI to copyright, adapt, edit, translate, summarize, reproduce, perform, display, distribute, publish, license, sublicense, sell, broadcast, post or stream over the Internet, and otherwise use and allow others to use any and all parts of the Recordings, forever and throughout the world, in any and all manners, and in any and all forms of media that IRI believes suitable.
+I agree that I shall have no right, title, or interest in or to the Recordings (or to any work comprising or based on the Recordings, in whole or in part), and that all right, title, and interest in and to the Recordings belongs to IRI. I waive any and all right to payment or other compensation arising from or related to the Recordings. I will not state or imply, or allow others to state or imply, that IRI approves of or endorses me or my activities. I further agree to release, defend, and hold IRI harmless from any claims, damages, or liabilities related to the Recordings or IRI’s use thereof.", class: "small" %>
+      <label for="adult_permission_photographic_agreement">
+      <%= checkbox f, :permission_photographic_agreement, [value: true] %>
+      <%= label f, :permission_photographic_agreement, "Agree to Photographic Release", class: "control-label" %>
+      <%= error_tag f, :permission_photographic_agreement %>
+    </div>
+
+    <%= submit "Register adult", class: "btn btn-primary" %>
+  <% end %>
+</div>  

@@ -1,0 +1,75 @@
+<div class="">
+  <h2><%= name(@adult) %></h2>
+
+<table class="table">
+ <tr>
+   <td>Mobile</td>
+   <td><%= @adult.mobile_number %></td>
+ </tr>
+ <tr>
+   <td>Email</td>
+   <td><%= @adult.email %></td>
+ </tr>
+ <tr>
+   <td>Birthdate</td>
+   <td><%= @adult.birth_date %></td>
+ </tr>
+ <tr>
+   <td>Gender</td>
+   <td><%= @adult.gender %></td>
+ </tr>
+ <tr>
+   <td>Ward</td>
+   <td><%= @adult.ward %></td>
+ </tr>
+ <tr>
+  <td colspan="2"><h3>Emergency Contact</h3></td>
+ </tr>
+ <tr>
+   <td>Emergency First Name</td>
+   <td><%= @adult.emergency_first_name %></td>
+ </tr>
+ <tr>
+   <td>Emergency Last Name</td>
+   <td><%= @adult.emergency_last_name %></td>
+ </tr>
+ <tr>
+   <td>Emergency Primary Number</td>
+   <td><%= @adult.emergency_primary_number %></td>
+ </tr>
+ <tr>
+   <td>Emergency Alternate Number</td>
+   <td><%= @adult.emergency_alternate_number %></td>
+ </tr>
+ <tr>
+   <td>Emergency Relationship</td>
+   <td><%= @adult.emergency_relationship %></td>
+ </tr>
+ <tr>
+   <td colspan="2"><h3>Medical Information</h3></td>
+ </tr>
+ <tr>
+   <td>Medical Allergies</td>
+   <td><%= @adult.medical_allergies %></td>
+ </tr>
+ <tr>
+   <td>Medical Limitations</td>
+   <td><%= @adult.medical_limitations %></td>
+ </tr>
+ <tr>
+   <td>Medical Medications</td>
+   <td><%= @adult.medical_medications %></td>
+ </tr>
+ <tr>
+   <td>Medical History</td>
+   <td><%= @adult.medical_history %></td>
+ </tr>
+ <tr>
+   <td colspan="2"><h3>Permission</h3></td>
+ </tr>
+ <tr>
+   <td>Photographic Agreement</td>
+   <td><%= @adult.permission_photographic_agreement %></td>
+ </tr>
+</table>
+</div>

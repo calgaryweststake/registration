@@ -1,0 +1,52 @@
+<div class="">
+  <h2>Registered Adults</h2>
+  <table class="table-condensed table-striped">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Mobile</th>
+        <th>Email</th>
+        <th>Birthdate</th>
+        <th>Gender</th>
+        <th>Ward</th>
+        <th>Emergency First Name</th>
+        <th>Emergency Last Name</th>
+        <th>Emergency Primary Number</th>
+        <th>Emergency Alternate Number</th>
+        <th>Emergency Relationship</th>
+        <th>Medical Allergies</th>
+        <th>Medical Limitations</th>
+        <th>Medical Medications</th>
+        <th>Medical History</th>
+        <th>Permission Photographic Agreement</th>
+      </tr>
+    </thead>
+    <tbody>
+    <%= for adult <- @adult do %>
+      <tr>
+        <td><b><%= name(adult) %></b></td>
+        <td><%= adult.mobile_number %></td>
+        <td><%= adult.email %></td>
+        <td><%= adult.birth_date %></td>
+        <td><%= adult.gender %></td>
+        <td><%= adult.ward %></td>
+
+        <td><%= adult.emergency_first_name %></td>
+        <td><%= adult.emergency_last_name %></td>
+        <td><%= adult.emergency_primary_number %></td>
+        <td><%= adult.emergency_alternate_number %></td>
+        <td><%= adult.emergency_relationship %></td>
+
+        <td><%= abbreviated_allergies(adult) %></td>
+        <td><%= abbreviated_limitations(adult) %></td>
+        <td><%= abbreviated_medications(adult) %></td>
+        <td><%= abbreviated_history(adult) %></td>
+
+        <td><%= adult.permission_photographic_agreement %></td>
+
+        <td><%= link "View", to: adult_path(@conn, :show, adult.id) %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>  

@@ -33,7 +33,7 @@ defmodule HelloWeb.Router do
     resources("/sessions", SessionController, only: [:new, :create])
 
     resources "/youth", YouthController, only: [:new, :create]
-    resources "/leader", LeaderController, only: [:new, :create]
+    resources "/adult", AdultController, only: [:new, :create]
 
   end
 
@@ -44,7 +44,7 @@ defmodule HelloWeb.Router do
     resources("/sessions", SessionController, only: [:delete])
 
     resources "/youth", YouthController, only: [:index, :show]
-    resources "/leader", LeaderController, only: [:index, :show]
+    resources "/adult", AdultController, only: [:index, :show]
 
   end
 
