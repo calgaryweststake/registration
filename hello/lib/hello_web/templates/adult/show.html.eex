@@ -3,16 +3,16 @@
 
 <table class="table">
  <tr>
+   <td>Role/Team</td>
+   <td><%= @adult.role %></td>
+ </tr>
+ <tr>
    <td>Mobile</td>
    <td><%= @adult.mobile_number %></td>
  </tr>
  <tr>
    <td>Email</td>
    <td><%= @adult.email %></td>
- </tr>
- <tr>
-   <td>Birthdate</td>
-   <td><%= @adult.birth_date %></td>
  </tr>
  <tr>
    <td>Gender</td>

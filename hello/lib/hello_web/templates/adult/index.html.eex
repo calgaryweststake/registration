@@ -4,9 +4,9 @@
     <thead>
       <tr>
         <th>Name</th>
+        <th>Role/Team</th>
         <th>Mobile</th>
         <th>Email</th>
-        <th>Birthdate</th>
         <th>Gender</th>
         <th>Ward</th>
         <th>Emergency First Name</th>
@@ -25,9 +25,9 @@
     <%= for adult <- @adult do %>
       <tr>
         <td><b><%= name(adult) %></b></td>
+        <td><%= adult.role %></td>
         <td><%= adult.mobile_number %></td>
         <td><%= adult.email %></td>
-        <td><%= adult.birth_date %></td>
         <td><%= adult.gender %></td>
         <td><%= adult.ward %></td>
 

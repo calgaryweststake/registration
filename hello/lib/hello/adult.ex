@@ -9,6 +9,7 @@ defmodule Hello.Adult do
     ## Adult Personal
     field :first_name, :string
     field :last_name, :string
+    field :role, :string
     field :mobile_number, :string
     field :email, :string
     field :gender, :string
@@ -38,9 +39,9 @@ defmodule Hello.Adult do
   def changeset(%Adult{} = adult, attrs \\ %{}) do
 
     adult
-    |> cast(attrs, [:first_name, :last_name, :mobile_number, :email, :gender, :ward, :emergency_first_name, :emergency_last_name, :emergency_primary_number, :emergency_alternate_number, :emergency_relationship, :alberta_health_care, :medical_allergies, :medical_limitations, :medical_medications, :medical_history, :permission_photographic_agreement])
+    |> cast(attrs, [:first_name, :last_name, :role, :mobile_number, :email, :gender, :ward, :emergency_first_name, :emergency_last_name, :emergency_primary_number, :emergency_alternate_number, :emergency_relationship, :alberta_health_care, :medical_allergies, :medical_limitations, :medical_medications, :medical_history, :permission_photographic_agreement])
     |> cast_attachments(attrs, [:photo])
-    |> validate_required([:first_name, :last_name, :email, :gender, :ward, :photo, :emergency_first_name, :emergency_last_name, :emergency_primary_number, :emergency_relationship, :alberta_health_care])
+    |> validate_required([:first_name, :last_name, :role, :email, :gender, :ward, :photo, :emergency_first_name, :emergency_last_name, :emergency_primary_number, :emergency_relationship, :alberta_health_care])
     |> validate_length(:first_name, min: 2, max: 30)
     |> validate_length(:last_name, min: 2, max: 30)
     |> validate_length(:mobile_number, min: 10, max: 30)
