@@ -28,6 +28,7 @@ config :ex_admin,
   modules: [
     HelloWeb.ExAdmin.Dashboard,
     HelloWeb.ExAdmin.Youth,
+    HelloWeb.ExAdmin.Adult,
     HelloWeb.ExAdmin.User
   ]
 
