@@ -4,8 +4,8 @@
   <p class="lead">Register as a youth participant</p>
   <span><%= link "Youth Registration", to: youth_path(@conn, :new), class: "btn btn-primary" %></span>
   </div>
-  <%# <div class="well well-lg">
+  <div class="well well-lg">
   <p class="lead">Register as an adult staff member</p>
   <a href="/adult/new" class="btn btn-default">Adult Registration</a>
-  </div> %>
+  </div>
 </div>
