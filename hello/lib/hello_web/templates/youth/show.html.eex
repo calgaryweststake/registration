@@ -7,8 +7,8 @@
    <td><%= @youth.mobile_number %></td>
  </tr>
  <tr>
-   <td>Birthdate</td>
-   <td><%= @youth.birth_date %></td>
+   <td>Age</td>
+   <td><%= @youth.age %></td>
  </tr>
  <tr>
    <td>Gender</td>

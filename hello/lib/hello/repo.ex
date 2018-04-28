@@ -16,10 +16,10 @@ end
 #   In memory repository.
 #   """
 #
-#   def all(Hello.Youth) do
-#     [%Hello.Youth{id: "1", name: "Stan", username: "stanislav", password: "elixir"},
-#     %Hello.Youth{id: "2", name: "Phil", username: "philislav", password: "phoenix"},
-#     %Hello.Youth{id: "3", name: "Leo", username: "leoislav", password: "erlang"}
+#   def all(Hello.Youths.Youth) do
+#     [%Hello.Youths.Youth{id: "1", name: "Stan", username: "stanislav", password: "elixir"},
+#     %Hello.Youths.Youth{id: "2", name: "Phil", username: "philislav", password: "phoenix"},
+#     %Hello.Youths.Youth{id: "3", name: "Leo", username: "leoislav", password: "erlang"}
 #     ]
 #   end
 #

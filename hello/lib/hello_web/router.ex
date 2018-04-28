@@ -49,14 +49,13 @@ defmodule HelloWeb.Router do
   end
 
   # Other scopes may use custom stacks.
-  # scope "/api", HelloWeb do
-  #   pipe_through :api
-  #
-  #   # resources "/youth", YouthController, only: [:new, :create]
-  #   resources "/youth", YouthController, only: [:index]
-  #   # resources "/leader", LeaderController, only: [:new, :create]
-  #
-  # end
+  scope "/api", HelloWeb do
+    pipe_through :api
+  #  pipe_through [:api, :auth]
+
+    resources "/youths", YouthAPIController, only: [:index, :show]
+
+  end
 end
 
 # activity_name: string (preselected)

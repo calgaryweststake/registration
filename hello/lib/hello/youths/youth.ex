@@ -1,9 +1,9 @@
-defmodule Hello.Youth do
+defmodule Hello.Youths.Youth do
   use Ecto.Schema
   use Arc.Ecto.Schema
 
   import Ecto.Changeset
-  alias Hello.Youth
+  alias Hello.Youths.Youth
 
   schema "youth" do
     ## Youth Personal

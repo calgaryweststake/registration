@@ -1,7 +1,7 @@
 defmodule HelloWeb.YouthController do
   use HelloWeb, :controller
   alias Hello.Repo
-  alias Hello.Youth
+  alias Hello.Youths.Youth
 
   def index(conn, _params) do
     youth = Repo.all(Youth)

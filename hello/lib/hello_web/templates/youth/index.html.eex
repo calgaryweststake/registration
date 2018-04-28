@@ -5,7 +5,7 @@
       <tr>
         <th>Name</th>
         <th>Mobile</th>
-        <th>Birthdate</th>
+        <th>Age</th>
         <th>Gender</th>
         <th>Ward</th>
         <th>Emergency First Name</th>
@@ -33,7 +33,7 @@
       <tr>
         <td><b><%= name(youth) %></b></td>
         <td><%= youth.mobile_number %></td>
-        <td><%= youth.birth_date %></td>
+        <td><%= youth.age %></td>
         <td><%= youth.gender %></td>
         <td><%= youth.ward %></td>
 
