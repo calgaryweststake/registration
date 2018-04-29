@@ -28,7 +28,7 @@ defmodule Hello.Auth do
 
   def login(conn, user) do
     conn
-    |> Guardian.Plug.sign_in(user)
+    |> Guardian.Plug.sign_in(user) ## This line generates the JWT, stores it in the session (and on the assigns) and proceeds. At this point, you're “logged in”.
     |> assign(:current_user, user)
     |> put_user_token(user)
   end

@@ -6,10 +6,11 @@ defmodule HelloWeb.SessionController do
   end
 
   def create(conn, %{"session" => %{"username" => user, "password" => password}}) do
+    ## Authenticate (confirm credentials)
     case Hello.Auth.authenticate_user(user, password) do
       {:ok, user} ->
         conn
-        |> Hello.Auth.login(user)
+        |> Hello.Auth.login(user) ## Then create session
         |> put_flash(:info, "Welcome back!")
         |> redirect(to: user_path(conn, :index))
 

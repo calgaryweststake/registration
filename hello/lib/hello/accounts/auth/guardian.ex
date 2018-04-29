@@ -10,9 +10,20 @@ defmodule Hello.Auth.Guardian do
     {:ok, sub}
   end
 
+  ## Might want this
+  # def subject_for_token(_, _) do
+  #   {:error, :reason_for_error}
+  # end
+
   def resource_from_claims(claims) do
     id = claims["sub"]
     user = Accounts.get_user(id)
     {:ok, user}
   end
+
+  ## Might want this
+  # def resource_from_claims(_claims) do
+  #   {:error, :reason_for_error}
+  # end
+
 end

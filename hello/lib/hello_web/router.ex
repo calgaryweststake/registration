@@ -18,12 +18,20 @@ defmodule HelloWeb.Router do
     plug(Hello.Auth.AuthAccessPipeline)
   end
 
+  pipeline :api_auth do
+    plug Guardian.Plug.Pipeline, module: Hello.Auth.Guardian, error_handler: HelloWeb.FallbackController
+    plug Guardian.Plug.VerifyHeader
+    plug Guardian.Plug.LoadResource
+    plug Guardian.Plug.EnsureAuthenticated
+  end
+
   # setup the ExAdmin routes on /admin
   scope "/admin", ExAdmin do
     pipe_through [:browser, :auth]
     admin_routes()
   end
 
+  ## Unauthenticated Web
   scope "/", HelloWeb do
     pipe_through :browser # Use the default browser stack
 
@@ -37,6 +45,7 @@ defmodule HelloWeb.Router do
 
   end
 
+  ## Authenticated Web
   scope "/", HelloWeb do
     pipe_through [:browser, :auth] # Use the default browser stack
 
@@ -48,10 +57,16 @@ defmodule HelloWeb.Router do
 
   end
 
-  # Other scopes may use custom stacks.
+  ## Unauthenticated API
   scope "/api", HelloWeb do
-    pipe_through :api
-  #  pipe_through [:api, :auth]
+       pipe_through :api
+
+       resources("/sessions", SessionAPIController, only: [:create])
+  end
+
+  ## Authenticated API
+  scope "/api", HelloWeb do
+    pipe_through [:api, :api_auth]
 
     resources "/youths", YouthAPIController, only: [:index, :show]
 
