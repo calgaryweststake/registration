@@ -9,6 +9,7 @@ defmodule HelloWeb.SessionAPIController do
         {_, jwt, claims} = Hello.Auth.Guardian.encode_and_sign(user) # need to deal with :ok or :error
         exp = Map.get(claims, "exp")
         # check claim for access?
+        # https://tools.ietf.org/html/rfc7519#section-4.1
         conn
         |> render("login.json", user: user, jwt: jwt, exp: exp)
       {:error, _reason} ->

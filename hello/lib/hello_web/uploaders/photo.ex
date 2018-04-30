@@ -3,6 +3,7 @@ defmodule Hello.Photo do
   use Arc.Ecto.Definition
 
   @versions [:original]
+  @acl :public_read
 
   # To add a thumbnail version:
   # @versions [:original, :thumb]
