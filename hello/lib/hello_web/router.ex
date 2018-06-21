@@ -39,8 +39,8 @@ defmodule HelloWeb.Router do
 
     # resources("/users", UserController, only: [:new, :create]) # disabled so accounts can only be created by authenticated users
     resources("/sessions", SessionController, only: [:new, :create])
-
-    resources "/youth", YouthController, only: [:new, :create]
+    resources "/youth", YouthClosedController, only: [:new]
+    resources "/youth_late", YouthController, only: [:new, :create]
     resources "/adult", AdultController, only: [:new, :create]
 
   end

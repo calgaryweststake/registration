@@ -1,8 +1,10 @@
 <div>
   <h2><%= gettext "Welcome to %{name}!", name: "Moroni's Quest Registration" %></h2>
   <div class="well well-lg">
-  <p class="lead">Register as a youth participant</p>
-  <span><%= link "Youth Registration", to: youth_path(@conn, :new), class: "btn btn-primary" %></span>
+  <p class="lead">Youth registration is no longer available</p>
+  <%# <span> %>
+  <%# <%= link "Youth Registration", to: youth_path(@conn, :new), class: "btn btn-primary" %>
+  <%# </span> %>
   </div>
   <div class="well well-lg">
   <p class="lead">Register as an adult staff member</p>
