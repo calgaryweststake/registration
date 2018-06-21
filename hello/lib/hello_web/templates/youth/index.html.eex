@@ -4,6 +4,7 @@
     <thead>
       <tr>
         <th>Name</th>
+        <th>Tribe</th>
         <th>Mobile</th>
         <th>Age</th>
         <th>Gender</th>
@@ -32,6 +33,7 @@
     <%= for youth <- @youth do %>
       <tr>
         <td><b><%= name(youth) %></b></td>
+        <td><%= youth.tribe %></td>
         <td><%= youth.mobile_number %></td>
         <td><%= youth.age %></td>
         <td><%= youth.gender %></td>

@@ -9,6 +9,7 @@ defmodule Hello.Youths.Youth do
     ## Youth Personal
     field :first_name, :string
     field :last_name, :string
+    field :tribe, :string
     field :mobile_number, :string
     field :birth_date, :date
     field :age, :integer
@@ -49,7 +50,7 @@ defmodule Hello.Youths.Youth do
   def changeset(%Youth{} = youth, attrs \\ %{}) do
 
     youth
-    |> cast(attrs, [:first_name, :last_name, :mobile_number, :birth_date, :gender, :ward, :emergency_first_name, :emergency_last_name, :emergency_primary_number, :emergency_alternate_number, :emergency_relationship, :alberta_health_care, :medical_allergies, :medical_limitations, :medical_medications, :medical_history, :permission_first_name, :permission_last_name, :permission_email, :permission_number, :permission_address, :permission_city, :permission_province, :permission_participation_agreement, :permission_photographic_agreement])
+    |> cast(attrs, [:first_name, :last_name, :tribe, :mobile_number, :birth_date, :gender, :ward, :emergency_first_name, :emergency_last_name, :emergency_primary_number, :emergency_alternate_number, :emergency_relationship, :alberta_health_care, :medical_allergies, :medical_limitations, :medical_medications, :medical_history, :permission_first_name, :permission_last_name, :permission_email, :permission_number, :permission_address, :permission_city, :permission_province, :permission_participation_agreement, :permission_photographic_agreement])
     |> cast_attachments(attrs, [:photo])
     |> validate_required([:first_name, :last_name, :birth_date, :gender, :ward, :photo, :emergency_first_name, :emergency_last_name, :emergency_primary_number, :emergency_relationship, :alberta_health_care, :permission_first_name, :permission_last_name, :permission_number, :permission_address, :permission_city, :permission_province])
     |> calculate_age(:birth_date)
