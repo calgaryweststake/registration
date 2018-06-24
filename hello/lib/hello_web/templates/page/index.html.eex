@@ -1,7 +1,7 @@
 <div>
   <h2><%= gettext "Welcome to %{name}!", name: "Moroni's Quest Registration" %></h2>
   <div class="well well-lg">
-  <p class="lead">Youth registration is no longer available</p>
+  <p class="lead">Online youth registration is no longer available.<br/>Please contact Paul &amp; Michelle Darby for any late registration concerns.</p>
   <%# <span> %>
   <%# <%= link "Youth Registration", to: youth_path(@conn, :new), class: "btn btn-primary" %>
   <%# </span> %>
